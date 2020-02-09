@@ -14,7 +14,7 @@ function Sierpinski(nbIteration, renderLevel) {
   this.nbIteration = nbIteration;
   this.renderLevel = renderLevel;
   this.triangleToDraw = [];
-  this.smooth = false;
+  this.smooth = true;
   this.offsetHSL = 50
   this.calculation()
   this.refresh(1)
@@ -88,7 +88,7 @@ Sierpinski.prototype.next = function (area = this.bg, depth = 0, isleft = true) 
     ]
   }
   this.triangleToDraw.push(triangle)
-  if(smooth) {
+  if (smooth) {
     if (depth < this.nbIteration + 8 && area.origin.x === 0 && area.origin.y === 0) {
       this.next(area1, depth + 1)
       this.next(area2, depth + 1)
@@ -108,9 +108,9 @@ Sierpinski.prototype.refresh = function () {
     zoom = 1
   }
   zoom *= 1.01
-  if(this.renderLevel === 3) {
-    this.offsetHSL --
-    if(this.offsetHSL <=0) this.offsetHSL = 360
+  if (this.renderLevel === 3) {
+    this.offsetHSL--
+    if (this.offsetHSL <= 0) this.offsetHSL = 360
     colorinput.value = this.offsetHSL
   }
   this.reinitCanvas()

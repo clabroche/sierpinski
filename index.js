@@ -5,7 +5,7 @@ iterationNumber.value = 6
 var ctx = canvas.getContext('2d');
 const windowWidth = document.documentElement.clientWidth 
 const windowHeight = document.documentElement.clientHeight 
-var smooth
+var smooth = true
 let sierpinski = new Sierpinski(+iterationNumber.value, 3);
 function changeLevel(ev) {
   sierpinski.renderLevel = +ev.value
