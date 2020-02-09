@@ -2,16 +2,49 @@
 <html>
 <head>
     <title>Triangle de Sierpinski</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .actions {
+            position: absolute;
+            bottom: 0;
+        }
+        label {
+            width: 130px;
+            display: inline-block;
+        }
+        input, select {
+            width: 100px;
+        }
+    </style>
 </head>
 <body style="overflow: hidden;">
-    <div style="position: absolute; right: 0;">
-        Iteration count: 
-        <input type="number" id="nbIteration"> 
+    <div class="actions">
         <div>
-            (max: 10)
+            <label>Colors:</label>
+            <select onchange="changeLevel(this)">
+                <option value="0">Low</option>
+                <option value="1">Medium</option>
+                <option value="2">Fancy</option>
+                <option value="3" selected>Extraordinary</option>
+            </select>
+        </div>
+        <div>
+            <label>Iterations number:</label>
+            <input type="number" id="iterationNumber" oninput="changeDepth(this)">
+        </div>
+        <div>
+            <label>Smooth:</label>
+            <input type="checkbox" oninput="changeSmooth(this)">
+        </div>
+        <div>
+            <label>Colors:</label>
+            <input id="colorinput" type="range" min="0" max="360" oninput="changeColor(this)">
         </div>
     </div>
     <canvas id="canvas"></canvas>
+    <script src="Sierpienski.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

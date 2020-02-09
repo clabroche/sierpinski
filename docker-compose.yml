@@ -1,0 +1,9 @@
+
+version: "2"
+services:
+    sierpinski:
+        image: sierpinski
+        expose:
+          - 9845
+        ports:
+          - 9878:9845
